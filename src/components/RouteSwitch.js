@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import Navbar from "./Navbar";
-import Shop from "./Shop";
+import Shop from "./pages/Shop";
 
 const RouteSwitch = () => {
   return (
