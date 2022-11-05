@@ -9,7 +9,7 @@ const Navbar = () => {
   const location = useLocation();
   let active = false;
 
-  if (location.pathname === "/shop") active = true;
+  if (location.pathname.substring(0, 5) === "/shop") active = true;
 
   return (
     <>
@@ -33,7 +33,7 @@ const Navbar = () => {
     "
       >
         <h1 className="inline-flex items-center text-xl font-medium">
-          Fashionista
+          <a href="/">Fashionista</a>
         </h1>
         <nav className="w-1/3">
           <ul className="flex h-16 justify-around items-stretchjustify-self-end text-gray-700">

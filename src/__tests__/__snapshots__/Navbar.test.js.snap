@@ -8,7 +8,11 @@ exports[`Navbar component renders navbar 1`] = `
     <h1
       class="inline-flex items-center text-xl font-medium"
     >
-      Fashionista
+      <a
+        href="/"
+      >
+        Fashionista
+      </a>
     </h1>
     <nav
       class="w-1/3"
