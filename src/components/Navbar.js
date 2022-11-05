@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   ShoppingBagIcon,
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
+import { CartContext } from "./App";
 
 const Navbar = () => {
+  const { cart } = useContext(CartContext);
   const location = useLocation();
   let active = false;
 
@@ -33,7 +35,7 @@ const Navbar = () => {
     "
       >
         <h1 className="inline-flex items-center text-xl font-medium">
-          <a href="/">Fashionista</a>
+          <Link to="/">Fashionista</Link>
         </h1>
         <nav className="w-1/3">
           <ul className="flex h-16 justify-around items-stretchjustify-self-end text-gray-700">
@@ -44,7 +46,7 @@ const Navbar = () => {
                   : "border-transparent hover:border-gray-300"
               } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700`}
             >
-              <a href="/">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li
               className={`inline-flex items-center border-b-2 ${
@@ -53,12 +55,13 @@ const Navbar = () => {
                   : "border-transparent hover:border-gray-300"
               } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700`}
             >
-              <a href="/shop">Shop</a>
+              <Link to="/shop">Shop</Link>
             </li>
             <li className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
-              <a href="#">
+              <Link to="#">
                 <ShoppingBagIcon className="h-6 w-6" />
-              </a>
+              </Link>
+              {cart.length > 0 ? cart.length : undefined}
             </li>
           </ul>
         </nav>
@@ -67,13 +70,13 @@ const Navbar = () => {
             <nav className="inline-flex items-start">
               <ul className="flex h-8 justify-evenly sm:gap-6 lg:gap-16 items-stretch text-gray-700">
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700">
-                  <a href="/shop/men">Men</a>
+                  <Link to="/shop/men">Men</Link>
                 </li>
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700">
-                  <a href="/shop/women">Women</a>
+                  <Link to="/shop/women">Women</Link>
                 </li>
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700">
-                  <a href="/shop/accessories">Accessories</a>
+                  <Link to="/shop/accessories">Accessories</Link>
                 </li>
               </ul>
             </nav>

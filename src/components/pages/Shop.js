@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const [loading, setLoading] = useState(true);
@@ -30,7 +31,7 @@ const Shop = () => {
             {Array(8)
               .fill(undefined)
               .map((item, index) => (
-                <a key={index} href="" className="group">
+                <Link key={index} to="" className="group">
                   <div className="bg-slate-300 rounded-xl aspect-w-1 aspect-h-1 w-full overflow-hidden lg:aspect-w-7 xl:aspect-h-8">
                     &nbsp;
                   </div>
@@ -40,7 +41,7 @@ const Shop = () => {
                   <p className="bg-slate-300 w-16 rounded-xl mt-1 text-lg font-medium text-gray-900">
                     &nbsp;
                   </p>
-                </a>
+                </Link>
               ))}
           </div>
         </div>
@@ -49,9 +50,9 @@ const Shop = () => {
           <h2 className="sr-only">Products</h2>
           <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products?.map((product) => (
-              <a
+              <Link
                 key={product.id}
-                href={"/shop/item/".concat(product.id)}
+                to={"/shop/item/".concat(product.id)}
                 className="group"
               >
                 <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-white lg:aspect-w-7 xl:aspect-h-8">
@@ -69,7 +70,7 @@ const Shop = () => {
                 <p className="mt-1 text-lg font-medium text-gray-900">
                   ${product.price}
                 </p>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

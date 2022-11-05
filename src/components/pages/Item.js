@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { StarIcon, CheckIcon } from "@heroicons/react/24/outline";
+import { CartContext } from "../App";
 
 const Item = () => {
+  const { cart, setCart } = useContext(CartContext);
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState();
   const location = useLocation();
@@ -14,6 +16,10 @@ const Item = () => {
   useEffect(() => {
     getItem();
   }, []);
+
+  const addToCart = (item) => {
+    setCart([...cart, item]);
+  };
 
   const getItem = async () => {
     try {
@@ -198,17 +204,14 @@ const Item = () => {
                 <h2 id="options-heading" className="sr-only">
                   Product options
                 </h2>
-
-                <form>
-                  <div className="mt-10">
-                    <button
-                      type="submit"
-                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
-                    >
-                      Add to bag
-                    </button>
-                  </div>
-                </form>
+                <div className="mt-10">
+                  <button
+                    onClick={() => addToCart(item)}
+                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                  >
+                    Add to bag
+                  </button>
+                </div>
               </section>
             </div>
           </div>
