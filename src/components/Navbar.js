@@ -37,10 +37,22 @@ const Navbar = () => {
         </h1>
         <nav className="w-1/3">
           <ul className="flex h-16 justify-around items-stretchjustify-self-end text-gray-700">
-            <li className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+            <li
+              className={`inline-flex items-center border-b-2 ${
+                location.pathname.length === 1
+                  ? "border-indigo-600 hover:border-indigo-700"
+                  : "border-transparent hover:border-gray-300"
+              } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700`}
+            >
               <a href="/">Home</a>
             </li>
-            <li className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+            <li
+              className={`inline-flex items-center border-b-2 ${
+                location.pathname.substring(0, 5) === "/shop"
+                  ? "border-indigo-600 hover:border-indigo-700"
+                  : "border-transparent hover:border-gray-300"
+              } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700`}
+            >
               <a href="/shop">Shop</a>
             </li>
             <li className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
