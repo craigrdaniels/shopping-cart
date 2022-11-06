@@ -71,7 +71,7 @@ const Shop = () => {
                 to={"/shop/item/".concat(product.id)}
                 className="group"
               >
-                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-white lg:aspect-w-7 xl:aspect-h-8">
+                <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-white lg:aspect-w-7 lg:aspect-h-8">
                   <img
                     src={product.image}
                     alt={product.title}
