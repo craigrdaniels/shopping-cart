@@ -59,7 +59,7 @@ const Shop = () => {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="h-full w-full object-contain object-center group-hover:opacity-75"
+                    className="h-full w-full object-contain object-center group-hover:opacity-75 transition"
                   />
                 </div>
                 <h3 className="mt-4 text-sm text-gray-700">

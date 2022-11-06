@@ -44,7 +44,7 @@ const Navbar = () => {
                 location.pathname.length === 1
                   ? "border-indigo-600 hover:border-indigo-700"
                   : "border-transparent hover:border-gray-300"
-              } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700`}
+              } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 transition`}
             >
               <Link to="/">Home</Link>
             </li>
@@ -53,11 +53,11 @@ const Navbar = () => {
                 location.pathname.substring(0, 5) === "/shop"
                   ? "border-indigo-600 hover:border-indigo-700"
                   : "border-transparent hover:border-gray-300"
-              } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700`}
+              } px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 transition`}
             >
               <Link to="/shop">Shop</Link>
             </li>
-            <li className="inline-flex relative items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+            <li className="inline-flex relative items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 transition">
               <Link onClick={() => setOpen(true)}>
                 <ShoppingBagIcon className="h-6 w-6" />
               </Link>
@@ -73,13 +73,13 @@ const Navbar = () => {
           <div className="w-full inline-flex justify-center sm:gap-6 lg:gap-16">
             <nav className="inline-flex items-start">
               <ul className="flex h-8 justify-evenly sm:gap-6 lg:gap-16 items-stretch text-gray-700">
-                <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700">
+                <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
                   <Link to="/shop/men">Men</Link>
                 </li>
-                <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700">
+                <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
                   <Link to="/shop/women">Women</Link>
                 </li>
-                <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700">
+                <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
                   <Link to="/shop/accessories">Accessories</Link>
                 </li>
               </ul>
