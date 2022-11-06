@@ -57,11 +57,15 @@ const Navbar = () => {
             >
               <Link to="/shop">Shop</Link>
             </li>
-            <li className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+            <li className="inline-flex relative items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
               <Link onClick={() => setOpen(true)}>
                 <ShoppingBagIcon className="h-6 w-6" />
               </Link>
-              {cart.length > 0 ? cart.length : undefined}
+              {cart.length > 0 ? (
+                <div className="absolute top-4 left-5 inline-flex items-center justify-center text-white text-sm bg-indigo-600 rounded-full w-4 h-4">
+                  {cart.length}
+                </div>
+              ) : undefined}
             </li>
           </ul>
         </nav>
