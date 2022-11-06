@@ -7,7 +7,7 @@ import { useLocation, Link } from "react-router-dom";
 import { CartContext } from "./App";
 
 const Navbar = () => {
-  const { cart } = useContext(CartContext);
+  const { cart, setOpen } = useContext(CartContext);
   const location = useLocation();
   let active = false;
 
@@ -58,7 +58,7 @@ const Navbar = () => {
               <Link to="/shop">Shop</Link>
             </li>
             <li className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
-              <Link to="#">
+              <Link onClick={() => setOpen(true)}>
                 <ShoppingBagIcon className="h-6 w-6" />
               </Link>
               {cart.length > 0 ? cart.length : undefined}
