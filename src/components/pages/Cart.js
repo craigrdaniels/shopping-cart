@@ -20,6 +20,14 @@ const Cart = () => {
     return subtotal;
   };
 
+  const getCount = (item) => {
+    let count = 0;
+    cart.forEach((product) => {
+      if (product === item) count += 1;
+    });
+    return count;
+  };
+
   const removeFromCart = (item) => {
     setCart([...cart.filter((__, index) => index !== cart.lastIndexOf(item))]);
   };
@@ -90,12 +98,17 @@ const Cart = () => {
                                   <div>
                                     <div className="flex justify-between text-base font-medium text-gray-900">
                                       <h3>{item.title}</h3>
-                                      <p className="ml-4">${item.price}</p>
+                                      <p className="ml-4">
+                                        {item.price.toLocaleString("en-AU", {
+                                          style: "currency",
+                                          currency: "AUD",
+                                        })}
+                                      </p>
                                     </div>
                                   </div>
                                   <div className="flex flex-1 items-end justify-between text-sm">
                                     <p className="text-gray-500">
-                                      Qty {"Count"}
+                                      Qty: {getCount(item)}
                                     </p>
 
                                     <div className="flex">
@@ -119,7 +132,12 @@ const Cart = () => {
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>${getSubtotal()}</p>
+                        <p>
+                          {getSubtotal().toLocaleString("en-AU", {
+                            style: "currency",
+                            currency: "AUD",
+                          })}
+                        </p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">
                         Shipping and taxes calculated at checkout.

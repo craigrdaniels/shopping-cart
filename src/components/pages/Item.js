@@ -139,7 +139,10 @@ const Item = () => {
 
                 <div className="flex items-center">
                   <p className="text-lg text-gray-900 sm:text-xl">
-                    ${item?.price}
+                    {item?.price.toLocaleString("en-AU", {
+                      style: "currency",
+                      currency: "AUD",
+                    })}
                   </p>
 
                   <div className="ml-4 border-l border-gray-300 pl-4">
