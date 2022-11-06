@@ -74,13 +74,16 @@ const Navbar = () => {
             <nav className="inline-flex items-start">
               <ul className="flex h-8 justify-evenly sm:gap-6 lg:gap-16 items-stretch text-gray-700">
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
-                  <Link to="/shop/men">Men</Link>
+                  <Link to="/shop/men's clothing">Men</Link>
                 </li>
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
-                  <Link to="/shop/women">Women</Link>
+                  <Link to="/shop/women's clothing">Women</Link>
                 </li>
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
-                  <Link to="/shop/accessories">Accessories</Link>
+                  <Link to="/shop/jewelery">Jewelery</Link>
+                </li>
+                <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
+                  <Link to="/shop/electronics">Electronics</Link>
                 </li>
               </ul>
             </nav>

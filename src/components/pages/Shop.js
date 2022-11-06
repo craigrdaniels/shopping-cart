@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Shop = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     getProducts();
   }, []);
 
+  useEffect(() => {
+    getProducts();
+  }, [location]);
+
   const getProducts = async () => {
     try {
       setLoading(true);
-      const response = await fetch("https://fakestoreapi.com/products");
+      const category = location.pathname.slice(
+        location.pathname.lastIndexOf("/"),
+        location.pathname.length
+      );
+      let url = "https://fakestoreapi.com/products";
+      if (category !== "/shop") {
+        url += "/category" + category;
+      }
+      const response = await fetch(url);
       const products = await response.json();
       setProducts(products);
       setLoading(false);

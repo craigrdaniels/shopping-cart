@@ -21,7 +21,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/shop/item/*" element={<Item />} />
-          <Route exact path="/shop" element={<Shop />} />
+          <Route path="/shop/*" element={<Shop />} />
         </Routes>
       </CartContext.Provider>
     </BrowserRouter>
