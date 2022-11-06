@@ -1,19 +1,31 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import Navbar from "../components/Navbar";
+import { CartContext } from "../components/App";
+import { MemoryRouter } from "react-router-dom";
 
-import "react-router-dom";
-
-jest.mock("react-router-dom", () => ({
-  ...jest.requireActual("react-router-dom"),
-  useLocation: () => ({
-    pathname: "/",
-  }),
-}));
+afterEach(cleanup);
 
 describe("Navbar component", () => {
-  it("renders navbar", () => {
-    const { container } = render(<Navbar />);
+  it("renders main navbar", () => {
+    const { container } = render(
+      <MemoryRouter initialEntries={[{ pathname: "/" }]}>
+        <CartContext.Provider value={{ cart: [] }}>
+          <Navbar />
+        </CartContext.Provider>
+      </MemoryRouter>
+    );
     expect(container).toMatchSnapshot();
+  });
+
+  it("renders shop nav", () => {
+    render(
+      <MemoryRouter initialEntries={[{ pathname: "/shop" }]}>
+        <CartContext.Provider value={{ cart: [] }}>
+          <Navbar />
+        </CartContext.Provider>
+      </MemoryRouter>
+    );
+    expect(screen.getByText("Men")).toBeInTheDocument();
   });
 });
