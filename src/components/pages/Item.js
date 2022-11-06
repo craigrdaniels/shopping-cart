@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { StarIcon, CheckIcon } from "@heroicons/react/24/outline";
 import { CartContext } from "../App";
@@ -8,6 +8,7 @@ const Item = () => {
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState();
   const location = useLocation();
+  const prevLocationRef = useRef();
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -15,7 +16,13 @@ const Item = () => {
 
   useEffect(() => {
     getItem();
+    prevLocationRef.current = location;
   }, []);
+
+  useEffect(() => {
+    if (location.pathname !== prevLocationRef.current.pathname) getItem();
+    prevLocationRef.current = location;
+  }, [location]);
 
   const addToCart = (item) => {
     setCart([...cart, item]);
@@ -28,6 +35,7 @@ const Item = () => {
         location.pathname.lastIndexOf("/"),
         location.pathname.length
       );
+      if (id === "/" || id === "/item") throw Error;
       const response = await fetch(
         "https://fakestoreapi.com/products/".concat(id)
       );

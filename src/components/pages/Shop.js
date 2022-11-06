@@ -1,17 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Shop = () => {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const location = useLocation();
+  const prevLocationRef = useRef();
 
   useEffect(() => {
     getProducts();
+    prevLocationRef.current = location;
   }, []);
 
   useEffect(() => {
-    getProducts();
+    if (location.pathname !== prevLocationRef.current.pathname) getProducts();
+    prevLocationRef.current = location;
   }, [location]);
 
   const getProducts = async () => {
@@ -22,7 +25,7 @@ const Shop = () => {
         location.pathname.length
       );
       let url = "https://fakestoreapi.com/products";
-      if (category !== "/shop") {
+      if (category !== "/shop" && category !== "/") {
         url += "/category" + category;
       }
       const response = await fetch(url);
