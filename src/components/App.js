@@ -1,6 +1,9 @@
-import React, { createContext, useState } from "react";
-
+import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  readShoppingCart,
+  writeShoppingCart,
+} from "./pages/handlers/localStorage";
 import Navbar from "./Navbar";
 import Shop from "./pages/Shop";
 import Item from "./pages/Item";
@@ -10,8 +13,16 @@ import Cart from "./pages/Cart";
 const CartContext = createContext(null);
 
 const App = () => {
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(() => {
+    // getting stored data
+    const saved = readShoppingCart();
+    return saved || [];
+  });
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    writeShoppingCart(cart);
+  }, [cart]);
 
   return (
     <BrowserRouter>
