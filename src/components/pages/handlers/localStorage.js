@@ -51,8 +51,3 @@ const readShoppingCart = () => {
 };
 
 export { writeShoppingCart, readShoppingCart };
-
-// TO DO:
-// store as array of item IDs
-// unable to map items to a Set +
-// possibilty of client altering prices of items?

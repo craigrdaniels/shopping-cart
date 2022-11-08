@@ -1,4 +1,4 @@
-import { Link, Fragment, useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { CartContext } from "../App";
@@ -11,6 +11,7 @@ const Cart = () => {
   useEffect(() => {
     const uniqueIDs = new Set();
 
+    // Unable to use Set() here when reading localStorage
     setCartItems([
       ...cart.filter((element) => {
         const isDuplicate = uniqueIDs.has(element.id);
@@ -24,16 +25,6 @@ const Cart = () => {
         return false;
       }),
     ]);
-
-    //setCartItems([...new Set(cart.map((item) => item))]);
-    // setCartItems([
-    //   ...cart.reduce((acc, curr) => {
-    //     if (!acc.includes(curr)) {
-    //       return [...acc, curr];
-    //     }
-    //     return acc;
-    //   }),
-    // ]);
   }, [cart]);
 
   const getSubtotal = () => {
