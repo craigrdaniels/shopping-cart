@@ -42,7 +42,7 @@ const readShoppingCart = () => {
       localStorage.getItem("shoppingCart") !== null &&
       localStorage.getItem("shoppingCart") !== undefined
     ) {
-      cart = JSON.parse(localStorage.getItem("shoppingCart"));
+      cart = JSON.parse(localStorage.getItem("shoppingCart")) || [];
     }
   } else {
     console.warn("localStorage unavailable");
@@ -51,3 +51,8 @@ const readShoppingCart = () => {
 };
 
 export { writeShoppingCart, readShoppingCart };
+
+// TO DO:
+// store as array of item IDs
+// unable to map items to a Set +
+// possibilty of client altering prices of items?

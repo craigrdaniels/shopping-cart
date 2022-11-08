@@ -9,7 +9,31 @@ const Cart = () => {
   const { open, setOpen } = useContext(CartContext);
 
   useEffect(() => {
-    setCartItems([...new Set(cart.map((item) => item))]);
+    const uniqueIDs = new Set();
+
+    setCartItems([
+      ...cart.filter((element) => {
+        const isDuplicate = uniqueIDs.has(element.id);
+
+        if (!isDuplicate) {
+          uniqueIDs.add(element.id);
+
+          return true;
+        }
+
+        return false;
+      }),
+    ]);
+
+    //setCartItems([...new Set(cart.map((item) => item))]);
+    // setCartItems([
+    //   ...cart.reduce((acc, curr) => {
+    //     if (!acc.includes(curr)) {
+    //       return [...acc, curr];
+    //     }
+    //     return acc;
+    //   }),
+    // ]);
   }, [cart]);
 
   const getSubtotal = () => {
@@ -23,7 +47,7 @@ const Cart = () => {
   const getCount = (item) => {
     let count = 0;
     cart.forEach((product) => {
-      if (product === item) count += 1;
+      if (product.id === item.id) count += 1;
     });
     return count;
   };
