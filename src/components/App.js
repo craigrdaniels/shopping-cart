@@ -1,14 +1,12 @@
 import React, { createContext, useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {
-  readShoppingCart,
-  writeShoppingCart,
-} from "./pages/handlers/localStorage";
+import { readShoppingCart, writeShoppingCart } from "./handlers/localStorage";
 import Navbar from "./Navbar";
 import Shop from "./pages/Shop";
 import Item from "./pages/Item";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
+import PageNotFound from "./pages/PageNotFound";
 
 const CartContext = createContext(null);
 
@@ -33,6 +31,7 @@ const App = () => {
           <Route exact path="/" element={<Home />} />
           <Route path="/shop/item/*" element={<Item />} />
           <Route path="/shop/*" element={<Shop />} />
+          <Route element={<PageNotFound />} />
         </Routes>
       </CartContext.Provider>
     </BrowserRouter>

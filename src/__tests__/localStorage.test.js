@@ -1,7 +1,7 @@
 import {
   writeShoppingCart,
   readShoppingCart,
-} from "../components/pages/handlers/localStorage";
+} from "../components/handlers/localStorage";
 
 const testCart = [
   {
