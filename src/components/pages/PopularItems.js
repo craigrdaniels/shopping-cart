@@ -28,38 +28,55 @@ const PopularItems = () => {
         Popular Items
       </h2>
 
-      <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-        {popularItems?.map((product) => (
-          <Link
-            key={product.id}
-            to={"/shop/item/".concat(product.id)}
-            className="group"
-          >
-            <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-white hover:opacity-75 lg:aspect-none lg:h-80">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="h-full w-full object-contain object-center lg:h-full lg:w-full hover:opacity-75 transition"
-              />
-            </div>
-            <div className="mt-4 flex justify-between">
-              <div>
-                <h3 className="text-sm text-gray-700">
-                  {product.title.length > 36
-                    ? product.title.substring(0, 24) + "..."
-                    : product.title}
-                </h3>
+      {loading ? (
+        <div className="animate-pulse mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          {Array(4)
+            .fill(undefined)
+            .map((item, index) => (
+              <Link key={index} to="" className="group">
+                <div className="bg-slate-300 rounded-xl min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-m hover:opacity-75 lg:aspect-none lg:h-80">
+                  &nbsp;
+                </div>
+                <div className="mt-4 bg-slate-300 rounded-xl flex justify-between">
+                  &nbsp;
+                </div>
+              </Link>
+            ))}
+        </div>
+      ) : (
+        <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+          {popularItems?.map((product) => (
+            <Link
+              key={product.id}
+              to={"/shop/item/".concat(product.id)}
+              className="group"
+            >
+              <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-white hover:opacity-75 lg:aspect-none lg:h-80">
+                <img
+                  src={product.image}
+                  alt={product.title}
+                  className="h-full w-full object-contain object-center lg:h-full lg:w-full hover:opacity-75 transition"
+                />
               </div>
-              <p className="text-sm font-medium text-gray-900">
-                {product.price.toLocaleString("en-AU", {
-                  style: "currency",
-                  currency: "AUD",
-                })}
-              </p>
-            </div>
-          </Link>
-        ))}
-      </div>
+              <div className="mt-4 flex justify-between">
+                <div>
+                  <h3 className="text-sm text-gray-700">
+                    {product.title.length > 36
+                      ? product.title.substring(0, 24) + "..."
+                      : product.title}
+                  </h3>
+                </div>
+                <p className="text-sm font-medium text-gray-900">
+                  {product.price.toLocaleString("en-AU", {
+                    style: "currency",
+                    currency: "AUD",
+                  })}
+                </p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
