@@ -26,7 +26,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <CartContext.Provider value={{ cart, setCart, open, setOpen }}>
-        <div className="flex flex-col border border-gray-600 min-h-screen">
+        <div className="flex flex-col min-h-screen">
           <Navbar />
           <Cart />
           <Routes>
