@@ -1,13 +1,16 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   ShoppingBagIcon,
   MagnifyingGlassIcon,
+  Bars3Icon,
 } from "@heroicons/react/24/outline";
 import { useLocation, Link } from "react-router-dom";
 import { CartContext } from "./App";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {
   const { cart, setOpen } = useContext(CartContext);
+  const [navOpen, setNavOpen] = useState(false);
   const location = useLocation();
   let active = false;
 
@@ -34,13 +37,13 @@ const Navbar = () => {
       z-10
     "
       >
-        <h1 className="inline-flex items-center text-xl font-medium">
+        <h1 className="inline-flex flex-grow items-center text-xl font-medium">
           <Link to="/">Fashionista</Link>
         </h1>
-        <nav className="w-1/3">
-          <ul className="flex h-16 justify-around items-stretchjustify-self-end text-gray-700">
+        <nav>
+          <ul className="flex h-16 gap-8 justify-around items-stretchjustify-self-end text-gray-700">
             <li
-              className={`inline-flex items-center border-b-2 ${
+              className={`invisible md:visible inline-flex items-center border-b-2 ${
                 location.pathname.length === 1
                   ? "border-indigo-600 hover:border-indigo-700"
                   : "border-transparent hover:border-gray-300"
@@ -49,7 +52,7 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li
-              className={`inline-flex items-center border-b-2 ${
+              className={`invisible md:visible inline-flex items-center border-b-2 ${
                 location.pathname.substring(0, 5) === "/shop"
                   ? "border-indigo-600 hover:border-indigo-700"
                   : "border-transparent hover:border-gray-300"
@@ -67,10 +70,15 @@ const Navbar = () => {
                 </div>
               ) : undefined}
             </li>
+            <li className="md:invisible inline-flex relative items-center border-b-2 border-transparent mx-4 px-1 pt-1 font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700 transition">
+              <Link onClick={() => setNavOpen(true)}>
+                <Bars3Icon className="h-6 w-6" />
+              </Link>
+            </li>
           </ul>
         </nav>
         {active ? (
-          <div className="w-full inline-flex justify-center sm:gap-6 lg:gap-16">
+          <div className="md:w-full collapse md:visible inline-flex flex-grow justify-center sm:gap-6 lg:gap-16">
             <nav className="inline-flex items-start">
               <ul className="flex h-8 justify-evenly sm:gap-6 lg:gap-16 items-stretch text-gray-700">
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
@@ -114,6 +122,7 @@ const Navbar = () => {
           ""
         )}
       </div>
+      <HamburgerMenu show={navOpen} setNavOpen={setNavOpen} />
     </>
   );
 };
