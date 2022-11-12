@@ -51,7 +51,7 @@ const Item = () => {
   return (
     <>
       {loading ? (
-        <div>
+        <div className="flex flex-col flex-grow">
           <div className="animate-pulse mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             {/* Product details */}
             <div className="lg:max-w-lg lg:self-end">
@@ -106,7 +106,7 @@ const Item = () => {
 
             {/* Product image */}
             <div className="mt-10 bg-slate-300 rounded-xl lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
-              <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
+              <div className="sm:h-80 sm:w-80 md:h-96 md:w-96 aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
                 &nbsp;
               </div>
             </div>
@@ -130,7 +130,7 @@ const Item = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="flex flex-col flex-grow">
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
             {/* Product details */}
             <div className="lg:max-w-lg lg:self-end">

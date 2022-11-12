@@ -5,7 +5,7 @@ import PopularItems from "./PopularItems";
 const Home = () => {
   return (
     <>
-      <div className="relative bg-indigo-800 group">
+      <div className="flex flex-col flex-grow relative bg-indigo-800 group">
         <div className="absolute inset-0 overflow-hidden">
           <img
             className="h-full w-full object-cover object-top group-hover:scale-105 transition duration-700 ease-in-out"
@@ -17,7 +17,7 @@ const Home = () => {
             aria-hidden="true"
           />
         </div>
-        <div className="relative mx-auto max-w-8xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
+        <div className="relative mr-0 max-w-8xl py-24 px-4 sm:py-32 sm:px-6 lg:px-8">
           <h1 className="text-right text-2xl tracking-tight [text-shadow:_1px_1px_0_rgb(0_0_0_/_40%)] text-white sm:text-5xl lg:text-6xl">
             Fashion direct to your doorstep
           </h1>

@@ -25,6 +25,7 @@ const Navbar = () => {
       mx-auto
       w-full
       min-h-16
+      max-h-32
       px-2
       sm:px-4
       lg:px-8
@@ -32,7 +33,7 @@ const Navbar = () => {
       justify-between
       items-stretch
       shadow
-      flex-grow
+      flex-shrink
       flex-wrap
       z-10
     "

@@ -34,7 +34,7 @@ const PopularItems = () => {
             .fill(undefined)
             .map((item, index) => (
               <Link key={index} to="" className="group">
-                <div className="bg-slate-300 rounded-xl min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-m hover:opacity-75 lg:aspect-none lg:h-80">
+                <div className="bg-slate-300 h-56 w-56 rounded-xl min-h-80 aspect-w-1 aspect-h-1 overflow-hidden rounded-m hover:opacity-75 lg:aspect-none lg:h-80">
                   &nbsp;
                 </div>
                 <div className="mt-4 bg-slate-300 rounded-xl flex justify-between">

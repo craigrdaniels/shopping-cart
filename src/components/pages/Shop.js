@@ -39,7 +39,7 @@ const Shop = () => {
   };
 
   return (
-    <div>
+    <div className="flex flex-col flex-grow">
       {loading ? (
         <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
           <h2 className="sr-only">Products</h2>
@@ -48,7 +48,7 @@ const Shop = () => {
               .fill(undefined)
               .map((item, index) => (
                 <Link key={index} to="" className="group">
-                  <div className="bg-slate-300 rounded-xl aspect-w-1 aspect-h-1 w-full overflow-hidden lg:aspect-w-7 xl:aspect-h-8">
+                  <div className="bg-slate-300 h-56 w-56 rounded-xl aspect-w-1 aspect-h-1 overflow-hidden lg:aspect-w-7 xl:aspect-h-8">
                     &nbsp;
                   </div>
                   <h3 className="mt-4 text-sm bg-slate-300 rounded-xl text-gray-700">
