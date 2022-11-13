@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const HamburgerMenu = ({ show, setNavOpen }) => {
   const [open, setOpen] = useState(show);
@@ -61,20 +62,51 @@ const HamburgerMenu = ({ show, setNavOpen }) => {
 
                       <div className="mt-8">
                         <div className="flow-root">
-                          <ul
-                            role="list"
-                            className="-my-6 divide-y divide-gray-200"
-                          >
-                            <li>Home</li>
-                            <li>
-                              Shop
-                              <ul>
-                                <li>Men</li>
-                                <li>Women</li>
-                                <li>Jewelery</li>
-                                <li>Electronics</li>
-                              </ul>
-                            </li>
+                          <ul className="flex flex-col my-6 divide-y divide-gray-200">
+                            <Link to="/" onClick={() => setOpen(false)}>
+                              <li className="flex flex-col justify-center h-16">
+                                Home
+                              </li>
+                            </Link>
+                            <Link to="/shop" onClick={() => setOpen(false)}>
+                              <li className="flex flex-col justify-center h-16">
+                                Shop
+                              </li>
+                            </Link>
+                            <ul>
+                              <Link
+                                to="/shop/men's clothing"
+                                onClick={() => setOpen(false)}
+                              >
+                                <li className="flex flex-col justify-center h-16">
+                                  Men
+                                </li>
+                              </Link>
+                              <Link
+                                to="/shop/women's clothing"
+                                onClick={() => setOpen(false)}
+                              >
+                                <li className="flex flex-col justify-center h-16">
+                                  Women
+                                </li>
+                              </Link>
+                              <Link
+                                to="/shop/jewelery"
+                                onClick={() => setOpen(false)}
+                              >
+                                <li className="flex flex-col justify-center h-16">
+                                  Jewelery
+                                </li>
+                              </Link>
+                              <Link
+                                to="/shop/electronics"
+                                onClick={() => setOpen(false)}
+                              >
+                                <li className="flex flex-col justify-center h-16">
+                                  Electronics
+                                </li>
+                              </Link>
+                            </ul>
                           </ul>
                         </div>
                       </div>
