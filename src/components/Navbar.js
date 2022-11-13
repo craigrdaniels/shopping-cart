@@ -75,7 +75,7 @@ const Navbar = () => {
           </ul>
         </nav>
         {active ? (
-          <div className="w-full collapse hidden md:inline-flex flex-grow justify-center md:gap-6 lg:gap-16">
+          <div className="w-full hidden md:inline-flex flex-grow justify-center md:gap-6 lg:gap-16">
             <nav className="inline-flex items-start">
               <ul className="flex h-8 justify-evenly md:gap-6 lg:gap-16 items-stretch text-gray-700">
                 <li className="inline-flex items-center border-b border-transparent px-1 pt-1 text-gray-600 hover:border-gray-300 hover:text-gray-700 transition">
