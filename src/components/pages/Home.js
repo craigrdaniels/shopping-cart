@@ -9,7 +9,7 @@ const Home = () => {
         <div className="absolute inset-0 overflow-hidden">
           <img
             className="h-full w-full object-cover object-top group-hover:scale-105 transition duration-700 ease-in-out"
-            src={require("/images/hannah-morgan-ycVFts5Ma4s-unsplash.jpg")}
+            src={require("../../images/hannah-morgan-ycVFts5Ma4s-unsplash.jpg")}
             alt=""
           />
           <div

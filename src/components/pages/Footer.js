@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -8,7 +7,7 @@ const Footer = () => {
       <a href="https://github.com/craigrdaniels/shopping-cart">
         <img
           className="items-center ml-2 h-4 w-4 hover:scale-110 duration-200"
-          src={require("/images/GitHub-Mark-120px-plus.png")}
+          src={require("../..//images/GitHub-Mark-120px-plus.png")}
           alt="GitHub"
         ></img>
       </a>
