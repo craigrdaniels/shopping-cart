@@ -24,7 +24,7 @@ const App = () => {
   }, [cart]);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/shopping-cart">
       <CartContext.Provider value={{ cart, setCart, open, setOpen }}>
         <div className="flex flex-col min-h-screen">
           <Navbar />
