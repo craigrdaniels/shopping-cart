@@ -5,7 +5,7 @@ import PopularItems from "./PopularItems";
 const Home = () => {
   return (
     <>
-      <div className="flex flex-col flex-grow relative bg-indigo-800 group">
+      <div className="flex flex-col mt-16 flex-grow relative bg-indigo-800 group">
         <div className="absolute inset-0 overflow-hidden">
           <img
             className="h-full w-full object-cover object-top group-hover:scale-105 transition duration-700 ease-in-out"
