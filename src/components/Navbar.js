@@ -16,6 +16,7 @@ const Navbar = () => {
     <>
       <div
         className="
+        fixed
       bg-white
       text-gray-900
       mx-auto
